@@ -1,11 +1,13 @@
 {
   "name": "physiophixx",
   "version": "1.0.0",
-  "description": "Physiophixx Clinic Management",
+  "description": "Physiophixx Clinic Management System",
   "main": "main.js",
+  "author": "Muhammad Sojib Ali",
+  "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder",
+    "dist": "electron-builder --win",
     "sync": "npx cap sync android",
     "open-android": "npx cap open android"
   },
@@ -15,17 +17,34 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^6.0.0",
-    "electron": "^32.0.0",
-    "electron-builder": "^25.0.0"
+    "electron": "^32.2.0",
+    "electron-builder": "^25.1.8"
   },
   "build": {
     "appId": "com.physiophixx.app",
     "productName": "Physiophixx",
+    "directories": {
+      "output": "dist"
+    },
     "files": [
-      "**/*"
+      "**/*",
+      "!android/**",
+      "!node_modules/.cache/**",
+      "!.git/**",
+      "!.github/**"
     ],
     "win": {
-      "target": "nsis"
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   }
 }
