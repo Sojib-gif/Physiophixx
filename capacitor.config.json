@@ -1,0 +1,6 @@
+{
+  "appId": "com.physiophixx.clinic",
+  "appName": "Physiophixx",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

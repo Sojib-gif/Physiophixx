@@ -1,32 +1,16 @@
 {
-  "name": "physiophixx-desktop",
+  "name": "physiophixx-mobile",
   "version": "1.0.0",
-  "description": "Physiophixx Clinic Management - Windows Desktop App",
-  "main": "main.js",
+  "description": "Physiophixx Clinic Management - Android App",
   "scripts": {
-    "start": "electron .",
-    "build-win": "electron-builder --win"
+    "sync": "npx cap sync android",
+    "open-android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
   },
   "devDependencies": {
-    "electron": "^31.0.0",
-    "electron-builder": "^24.13.3"
-  },
-  "build": {
-    "appId": "com.physiophixx.desktop",
-    "productName": "Physiophixx",
-    "files": [
-      "index.html",
-      "app.js",
-      "main.js",
-      "icon.ico"
-    ],
-    "win": {
-      "target": "nsis",
-      "icon": "icon.ico"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
-    }
+    "@capacitor/cli": "^6.0.0"
   }
 }
